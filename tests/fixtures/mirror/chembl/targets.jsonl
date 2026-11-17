@@ -1,0 +1,2 @@
+{"accession": "Q8NBP7", "target": "CHEMBL2929", "activities": 2460, "drugs": [{"name": "EVOLOCUMAB", "phase": 4, "action": "INHIBITOR"}, {"name": "BOCOCIZUMAB", "phase": 3, "action": "INHIBITOR"}, {"name": "ALIROCUMAB", "phase": 4, "action": "INHIBITOR"}]}
+{"accession": "P00325", "target": "CHEMBL3284", "activities": 512, "drugs": []}

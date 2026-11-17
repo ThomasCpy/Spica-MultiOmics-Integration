@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      The interface never calls the network, and this policy makes the
+      webview enforce it. A bundled library can only reach this page and data
+      in memory. Data comes from Python through the bridge; links still open
+      in the system browser.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' data: blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <title>Spica</title>
+    <!--
+      If the interface fails to start, say so instead of showing an empty
+      window: errors during load are kept, and if nothing has rendered a few
+      seconds in, the first of them is shown.
+    -->
+    <script>
+      window.__startup = [];
+      window.addEventListener("error", function (e) {
+        window.__startup.push(String(e.message) + (e.filename ? " (" + e.lineno + ":" + e.colno + ")" : ""));
+      });
+      window.addEventListener("unhandledrejection", function (e) {
+        window.__startup.push("Unhandled: " + String(e.reason));
+      });
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          var root = document.getElementById("root");
+          if (root && !root.childElementCount) {
+            root.textContent = "Spica could not start the interface. " +
+              (window.__startup[0] || "No error was reported.");
+            root.setAttribute("style", "padding:32px;font:14px sans-serif;color:#92400e");
+          }
+        }, 4000);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

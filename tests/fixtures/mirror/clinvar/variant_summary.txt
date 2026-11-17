@@ -1,0 +1,8 @@
+#AlleleID	Type	Name	GeneSymbol	ClinicalSignificance	Assembly	VariationID
+1	single nucleotide variant	c.1A>G	PCSK9	Pathogenic	GRCh38	100
+1	single nucleotide variant	c.1A>G	PCSK9	Pathogenic	GRCh37	100
+2	single nucleotide variant	c.2C>T	PCSK9	Pathogenic/Likely pathogenic	GRCh38	101
+3	single nucleotide variant	c.3G>A	PCSK9	Uncertain significance	GRCh38	102
+4	single nucleotide variant	c.4T>C	PCSK9	Conflicting classifications of pathogenicity	GRCh38	103
+5	copy number loss	del	PCSK9;USP24	Pathogenic	GRCh38	104
+6	single nucleotide variant	c.6A>T	PCSK9	not provided	GRCh38	105

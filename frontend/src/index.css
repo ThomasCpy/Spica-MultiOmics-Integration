@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+/* Fonts are bundled locally (no Google Fonts call), latin subset only. */
+@import "@fontsource/sora/latin-400.css";
+@import "@fontsource/sora/latin-600.css";
+@import "@fontsource/sora/latin-700.css";
+@import "@fontsource/jetbrains-mono/latin-400.css";
+@import "@fontsource/jetbrains-mono/latin-500.css";
+
+/* Spica art direction: white and blue-grey neutrals, one vivid azure accent. */
+@theme {
+  --color-azure: #00b2ff;       /* highlights, selection, focus, the star */
+  --color-azure-deep: #0077cc;  /* links, filled buttons, accent text */
+  --color-mist: #eaf7ff;        /* tinted backgrounds */
+  --color-frost: #f5faff;       /* page behind white surfaces */
+  --color-ink: #0b1b2b;         /* body text and headings */
+  --color-slate: #5b6b7c;       /* secondary text */
+  --color-line: #e3ebf3;        /* borders and dividers */
+  --color-surface: #ffffff;     /* cards, sidebar, inputs */
+  --color-azure-hover: #0068b3; /* a filled button under the pointer */
+  --color-on-accent: #ffffff;   /* text on a filled azure button */
+
+  /* Warnings and errors: amber with an icon and words, never colour alone. */
+  --color-warn-bg: #fef3c7;
+  --color-warn-ink: #92400e;
+  --color-warn-line: #fcd34d;
+  --color-error: #b42318;
+
+  /* Data colour. Sequential: one azure ramp, a zero step then four. On a
+     light surface more is darker; the dark theme re-steps it so more is
+     brighter, each step clearing 3:1 against the card. */
+  --color-seq-0: #f5faff;
+  --color-seq-1: #99deff;
+  --color-seq-2: #4dc9ff;
+  --color-seq-3: #00b2ff;
+  --color-seq-4: #0077cc;
+  /* Text that reads on each step. */
+  --color-on-seq-1: #0b1b2b;
+  --color-on-seq-2: #0b1b2b;
+  --color-on-seq-3: #0b1b2b;
+  --color-on-seq-4: #ffffff;
+  /* Diverging: orange up, azure down, grey at zero. */
+  --color-neutral: #e3ebf3;
+  --color-up: #f97316;
+  --color-up-soft: #fdba74;
+  --color-down: #0077cc;
+  /* Large areas (a cell's cytosol, the space outside it) take the pale end. */
+  --color-soft-1: #f5faff;
+  --color-soft-2: #eaf7ff;
+  --color-soft-3: #ccefff;
+  /* Outlines in diagrams. */
+  --color-edge: #c9d7e5;
+  --color-faint: #d5e3ef;
+
+  --font-sans: "Sora", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* The dark theme: the same blue-grey family. Deep navy surfaces. Azure stays
+   for highlights. Accent text and buttons have new steps, so they stay
+   readable (accent text 9.5:1 on a card, button text 10:1). Set in
+   Settings, Appearance, as data-theme on <html>. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-azure: #33c2ff;
+  --color-azure-deep: #5ccbff;
+  --color-mist: #13283d;
+  --color-frost: #0a121c;
+  --color-ink: #e7eef5;
+  --color-slate: #95a5b5;
+  --color-line: #223247;
+  --color-surface: #101b28;
+  --color-azure-hover: #8adaff;
+  --color-on-accent: #04121f;
+  --color-warn-bg: #3a2a10;
+  --color-warn-ink: #f5c46b;
+  --color-warn-line: #6b5420;
+  --color-error: #ff8a80;
+  --color-seq-0: #0e1a27;
+  --color-seq-1: #276fa0;
+  --color-seq-2: #2f9edb;
+  --color-seq-3: #48bdf5;
+  --color-seq-4: #9be0ff;
+  --color-on-seq-1: #ffffff;
+  --color-on-seq-2: #04121f;
+  --color-on-seq-3: #04121f;
+  --color-on-seq-4: #04121f;
+  --color-neutral: #2a3a4f;
+  --color-up: #e06c1c;   /* dark steps checked with the dataviz validator: L 0.48-0.67, CVD dE 24 */
+  --color-up-soft: #9a4f1f;
+  --color-down: #1f9ad8;
+  --color-soft-1: #0f1d2c;
+  --color-soft-2: #13283d;
+  --color-soft-3: #183552;
+  --color-edge: #3a4d63;
+  --color-faint: #2c3d52;
+}
+
+/* A light island inside the dark theme, for what draws its own light
+   canvas (the genome browser): the light values, restated. */
+[data-theme="light"] {
+  color-scheme: light;
+  --color-azure: #00b2ff;
+  --color-azure-deep: #0077cc;
+  --color-mist: #eaf7ff;
+  --color-frost: #f5faff;
+  --color-ink: #0b1b2b;
+  --color-slate: #5b6b7c;
+  --color-line: #e3ebf3;
+  --color-surface: #ffffff;
+  --color-error: #b42318;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    background: var(--color-frost);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden; /* the app manages its own scrolling, like a native window */
+  }
+
+  /* App chrome is not selectable text; inputs and content stay selectable. */
+  nav,
+  aside header,
+  button {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-azure);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* The floating-card main menu (Settings, Appearance, Main menu). The
+   global reduced-motion rule above stills all of it, and the orbit itself
+   stops in code. */
+@keyframes spica-bob {
+  from { transform: translateY(-5px); }
+  to { transform: translateY(5px); }
+}
+@keyframes spica-grow {
+  from { transform: translate(-50%, -50%) translateY(150px) scale(0.45); opacity: 0.3; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+@keyframes spica-shrink {
+  from { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  to { transform: translate(-50%, -50%) translateY(150px) scale(0.45); opacity: 0; }
+}
+@keyframes spica-unfold {
+  from { transform: perspective(800px) rotateX(-90deg); opacity: 0; }
+  55% { opacity: 1; }
+  to { transform: perspective(800px) rotateX(0deg); opacity: 1; }
+}
+@keyframes spica-fold {
+  from { transform: perspective(800px) rotateX(0deg); opacity: 1; }
+  to { transform: perspective(800px) rotateX(-90deg); opacity: 0; }
+}
+@keyframes spica-arrive {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.menu-bob { animation: spica-bob 7s ease-in-out infinite alternate; }
+.menu-grow { animation: spica-grow 440ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.menu-shrink { animation: spica-shrink 320ms cubic-bezier(0.4, 0, 0.7, 0.2) both; }
+.menu-unfold { animation: spica-unfold 480ms cubic-bezier(0.2, 0.8, 0.2, 1) both; transform-origin: top center; }
+.menu-fold { animation: spica-fold 220ms ease-in both; animation-delay: 0ms !important; transform-origin: top center; }
+.menu-arrive { animation: spica-arrive 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }

@@ -1,0 +1,5 @@
+hgnc_id	symbol	name	locus_group	locus_type	status	location	alias_symbol	prev_symbol	entrez_id	ensembl_gene_id	uniprot_ids
+HGNC:20001	PCSK9	proprotein convertase subtilisin/kexin type 9	protein-coding gene	gene with protein product	Approved	1p32.3	NARC1|HCHOLA3	NARC1	255738	ENSG00000169174	Q8NBP7
+HGNC:250	ADH1B	alcohol dehydrogenase 1B (class I), beta polypeptide	protein-coding gene	gene with protein product	Approved	4q23		ADH2	125	ENSG00000196616	P00325
+HGNC:29665	MALAT1	metastasis associated lung adenocarcinoma transcript 1	non-coding RNA	RNA, long non-coding	Approved	11q13.1	NEAT2|PRO2853	LINC00047	378938	ENSG00000251562	
+HGNC:99999	WITHDRAWNX	withdrawn example	other	unknown	Entry Withdrawn						

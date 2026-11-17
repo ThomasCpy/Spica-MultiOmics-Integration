@@ -1,0 +1,5 @@
+Gene	Gene name	Tissue	Cluster	Cell type	Read count	nTPM
+ENSG00000169174	PCSK9	liver	c-0	hepatocytes	900	118.0
+ENSG00000169174	PCSK9	liver	c-3	hepatocytes	950	131.5
+ENSG00000169174	PCSK9	liver	c-5	Kupffer cells	10	2.1
+ENSG00000169174	PCSK9	kidney	c-1	proximal tubular cells	60	8.6

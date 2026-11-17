@@ -1,0 +1,10 @@
+pywebview==6.2.1
+# Reads Open Targets' Parquet release when the mirror is built or updated, from
+# Settings or tools/build_mirror.py. Apache 2.0; bundled in the exe so a client's
+# copy can update its own data.
+pyarrow==21.0.0
+# Differential expression on GEO count matrices: PyDESeq2, a Python port of
+# DESeq2 checked against the R package (Muzellec et al., Bioinformatics 2023).
+# MIT. Brings scipy, pandas, scikit-learn and anndata (BSD); anndata brings two
+# MPL-2.0 packages, legacy-api-wrap and session-info2 (docs/licences.md).
+pydeseq2==0.5.4

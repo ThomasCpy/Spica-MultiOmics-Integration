@@ -1,0 +1,111 @@
+{
+  "mirror_version": "1",
+  "sources": {
+    "hgnc": {
+      "label": "HGNC",
+      "version": "2026-09-01",
+      "retrieved": "2026-10-20",
+      "license": "No restrictions (HGNC)",
+      "files": {
+        "complete_set": "hgnc/hgnc_complete_set.txt"
+      }
+    },
+    "ensembl": {
+      "label": "Ensembl",
+      "version": "115",
+      "assembly": "GRCh38.p14",
+      "retrieved": "2026-10-20",
+      "license": "No restrictions (Ensembl)",
+      "files": {
+        "genes": "ensembl/genes.tsv"
+      }
+    },
+    "uniprot": {
+      "label": "UniProt",
+      "version": "2026_04",
+      "retrieved": "2026-10-21",
+      "license": "CC BY 4.0",
+      "files": {
+        "entries": "uniprot/entries.tsv"
+      }
+    },
+    "gtex": {
+      "label": "GTEx",
+      "version": "v11",
+      "retrieved": "2026-10-21",
+      "license": "Open tier public; protected tier via dbGaP",
+      "files": {
+        "median_tpm": "gtex/median_tpm.gct.gz"
+      }
+    },
+    "hpa": {
+      "label": "Human Protein Atlas",
+      "version": "24.0",
+      "retrieved": "2026-10-22",
+      "license": "CC BY 4.0",
+      "files": {
+        "normal_tissue": "hpa/normal_tissue.tsv",
+        "rna_tissue": "hpa/rna_tissue_consensus.tsv",
+        "subcellular_location": "hpa/subcellular_location.tsv",
+        "single_cell": "hpa/rna_single_cell_type.tsv",
+        "single_cell_tissue": "hpa/rna_single_cell_type_tissue.tsv",
+        "interactions": "hpa/interaction_consensus.tsv"
+      }
+    },
+    "opentargets": {
+      "label": "Open Targets",
+      "version": "25.06",
+      "retrieved": "2026-10-23",
+      "license": "CC0 1.0 (some constituent data CC BY-SA)",
+      "files": {
+        "targets": "opentargets/targets.jsonl"
+      }
+    },
+    "alphafold": {
+      "label": "AlphaFold DB",
+      "version": "v6",
+      "retrieved": "2026-10-25",
+      "license": "CC BY 4.0",
+      "files": {
+        "summary": "alphafold/summary.tsv"
+      }
+    },
+    "chembl": {
+      "label": "ChEMBL",
+      "version": "36",
+      "retrieved": "2026-10-25",
+      "license": "CC BY-SA 3.0",
+      "files": {
+        "targets": "chembl/targets.jsonl"
+      }
+    },
+    "gwas": {
+      "label": "GWAS Catalog",
+      "version": "2026-10-22",
+      "retrieved": "2026-10-28",
+      "license": "EMBL-EBI terms of use",
+      "files": {
+        "traits": "gwas/traits.tsv"
+      }
+    },
+    "depmap": {
+      "label": "DepMap",
+      "version": "24Q4",
+      "retrieved": "2026-10-28",
+      "license": "CC BY 4.0",
+      "files": {
+        "genes": "depmap/genes.tsv",
+        "models": "depmap/Model.csv"
+      }
+    },
+    "clinvar": {
+      "label": "ClinVar",
+      "version": "2026-10",
+      "retrieved": "2026-10-25",
+      "license": "Public domain (NCBI)",
+      "files": {
+        "variant_summary": "clinvar/variant_summary.txt"
+      }
+    }
+  }
+}

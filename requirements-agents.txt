@@ -1,0 +1,21 @@
+# The local model, which is optional: Spica builds records without it, and
+# the agent panel falls back to a scripted stand-in when it is absent.
+#
+# Install with `./run.sh --agents`, which adds the wheel index below. The
+# published wheels are prebuilt, so no compiler is needed; building from
+# source on Windows would need MSVC.
+#
+#   --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+#
+# For an NVIDIA card, swap `cpu` for the CUDA build matching your driver
+# (cu121, cu124, ...). The CPU wheel already dispatches per microarchitecture
+# at runtime, so it is correct on chips without AVX-512.
+llama-cpp-python==0.3.36
+
+# Reading what is in the input folder. Each is pure Python or ships wheels,
+# so none of them needs a compiler either.
+pdfminer.six==20240706 # PDFs, with the block geometry the column ordering needs.
+                       # MIT. Not PyMuPDF: it is AGPL, which a closed product cannot ship.
+openpyxl==3.1.5        # Excel workbooks, one unit per sheet
+python-docx==1.2.0     # Word documents
+python-pptx==1.0.2     # decks, including native chart data

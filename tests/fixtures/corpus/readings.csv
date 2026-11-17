@@ -1,0 +1,4 @@
+gene,tissue,fold_change,n
+PCSK9,liver,2.41,3
+LDLR,liver,0.88,3
+CLDN18,stomach,5.02,3

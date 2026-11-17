@@ -1,0 +1,4 @@
+gene_id	relation	trait	trait_uris	associations	studies	mlog10p	p_value	risk_allele	or_beta	context	study	pubmed
+ENSG00000169174	in the gene	low density lipoprotein cholesterol measurement	http://www.ebi.ac.uk/efo/EFO_0004611	10	5	120.00	1E-120	rs11591147-T	-0.3	missense_variant	GCST000002	23456
+ENSG00000169174	in the gene	familial hypercholesterolemia	http://purl.obolibrary.org/obo/MONDO_0005439	3	2	45.20	6E-46	rs11591147-T	0.5	missense_variant	GCST000001	12345
+ENSG00000169174	nearest gene	coronary artery disease	http://www.ebi.ac.uk/efo/EFO_0001645	1	1	6.00	1E-6	rs1234-A	1.1	intergenic_variant	GCST000003	34567

@@ -1,0 +1,6 @@
+Gene	Gene name	Tissue	Cell type	Level	Reliability
+ENSG00000169174	PCSK9	liver	hepatocytes	High	Enhanced
+ENSG00000169174	PCSK9	liver	bile duct cells	Low	Enhanced
+ENSG00000169174	PCSK9	kidney	cells in tubules	Medium	Approved
+ENSG00000169174	PCSK9	cerebral cortex	neuronal cells	Not detected	Approved
+ENSG00000251562	MALAT1	liver	hepatocytes	Ascending	Uncertain

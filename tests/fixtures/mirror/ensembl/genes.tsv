@@ -1,0 +1,4 @@
+Gene stable ID	Gene name	Gene type	Chromosome/scaffold name	Gene start (bp)	Gene end (bp)	Strand
+ENSG00000169174	PCSK9	protein_coding	1	55039447	55064852	1
+ENSG00000196616	ADH1B	protein_coding	4	99304971	99321659	-1
+ENSG00000251562	MALAT1	lncRNA	11	65497688	65508073	1
